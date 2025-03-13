@@ -16,18 +16,22 @@
     </div>
 
     <script>
+        const API_BASE_URL = window.location.hostname === 'localhost' 
+            ? 'http://localhost:3000'
+            : 'https://testweb-pghe.onrender.com';
+
         // 获取按钮和显示粉丝数的div元素
         const fetchButton = document.getElementById('fetchButton');
         const fanCountDiv = document.getElementById('fanCount');
 
         // 为按钮添加点击事件监听器
         fetchButton.addEventListener('click', function() {
-            fetch("https://testweb-pghe.onrender.com/get-fans-count", {
+            fetch(`${API_BASE_URL}/get-fans-count`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                mode: 'cors'  // Explicitly set CORS mode
+                mode: 'cors'
             })
             .then(response => response.json())
             .then(data => {
