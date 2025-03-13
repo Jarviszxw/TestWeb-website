@@ -22,13 +22,13 @@
 
         // 为按钮添加点击事件监听器
         fetchButton.addEventListener('click', function() {
-            fetch("https://testweb-pghe.onrender.com/get-fans-count"), {
+            fetch("https://testweb-pghe.onrender.com/get-fans-count", {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 mode: 'cors'  // Explicitly set CORS mode
-            }
+            })
             .then(response => response.json())
             .then(data => {
                 if (data.data && data.data.follower) {
