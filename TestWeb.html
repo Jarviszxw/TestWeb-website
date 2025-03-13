@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARVIZ</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <h1>hello JARVIZ</h1>
+    <p>点击下方按钮，获取实时小红书粉丝数。</p>
+    <button id="fetchButton">获取粉丝数</button>
+    <div id="fanCount"></div>
+    <div class="image-container">
+        <img src="XiaohongshuLOGO.png" alt="示例图片">
+    </div>
+
+    <script>
+        // 获取按钮和显示粉丝数的div元素
+        const fetchButton = document.getElementById('fetchButton');
+        const fanCountDiv = document.getElementById('fanCount');
+
+        // 为按钮添加点击事件监听器
+        fetchButton.addEventListener('click', function() {
+            fetch("https://testweb-pghe.onrender.com/get-fans-count")
+            .then(response => response.json())
+            .then(data => {
+                if (data.data && data.data.follower) {
+                    const fanCount = data.data.follower;
+                    fanCountDiv.textContent = `当前粉丝数：${fanCount}`;
+                } else {
+                    fanCountDiv.textContent = '获取粉丝数失败';
+                    console.log('Response:', data);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching fan count:', error);
+                fanCountDiv.textContent = '获取粉丝数失败';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+/* 设置全局字体和背景 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* 标题样式 */
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* 图片格式 */
+.image-container {
+    display: flex;
+    justify-content: center;
+}
+
+.image-container img {
+    width: 30%;
+    height: auto;
+    margin-top: 50px;
+}
+
+/* 按钮样式 */
+#fetchButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007aff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#fetchButton:hover {
+    background-color: #0051a8;
+}
+
+/* 粉丝数显示 */
+#fanCount {
+    margin-top: 20px;
+    font-size: 21px;
+    font-weight: bold;
+}
